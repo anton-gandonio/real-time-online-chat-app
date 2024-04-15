@@ -6,6 +6,7 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -131,7 +132,8 @@ body {
   padding: 25px 30px;
 }
 
-.users header {
+.users header,
+.users-list a {
   display: flex;
   align-items: center;
   padding-bottom: 20px;
@@ -144,8 +146,9 @@ body {
   border-radius: 50%;
 }
 
-.users header .content {
+:is(.users, .users-list) .content {
   display: flex;
+  align-items: center;
 }
 
 .users header .content img {
@@ -153,11 +156,12 @@ body {
   width: 50px;
 }
 
-.users header .details {
+:is(.users, .users-list) .details {
+  color: #181717;
   margin-left: 15px;
 }
 
-.users header .details span {
+:is(.users, .users-list) .details span {
   font-size: 1rem;
   font-weight: 500;
 }
@@ -171,12 +175,62 @@ body {
 }
 
 .users .search {
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-.users .search .text{
-        
+.users .search .text {
+  font-size: 1rem;
+}
+
+.users .search input {
+  border: 1px solid #ccc;
+  padding: 0 13px;
+  font-size: 1rem;
+  border-radius: 5px;
+  position: absolute;
+  height: 42px;
+  width: calc(100% - 50px);
+  outline: none;
+}
+
+.users .search button {
+  width: 47px;
+  height: 42px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #333;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  font-size: 1rem;
+}
+
+.users-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+.users-list a {
+  padding-right: 15px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom-color: #f1f1f1;
+}
+
+.users-list a:last-child {
+  border: none;
+  margin-bottom: 0;
+}
+
+.users-list a .content img {
+  height: 50px;
+  width: 50px;
+}
+
+.users-list a .status-dot {
+  font-size: 12px;
+  color: #468669;
 }

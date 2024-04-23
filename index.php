@@ -14,32 +14,32 @@
     <div class="wrapper">
       <section class="form signup">
         <header>Онлайн-чат в реальном времени</header>
-        <form action="#">
+        <form action="#" enctype="multipart/form-data">
           <div class="error-txt">this is an error message!</div>
           <div class="name-details">
             <div class="field input">
               <label for="">Имя</label>
-              <input type="text" placeholder="Ваше имя" />
+              <input name="fname" type="text" required placeholder="Ваше имя" />
             </div>
             <div class="field input">
               <label for="">Фамилия</label>
-              <input type="text" placeholder="Ваша фамилия" />
+              <input name="lname" type="text" required placeholder="Ваша фамилия" />
             </div>
           </div>
           <div class="field input">
             <label for="">Электронная почта</label>
-            <input type="email" placeholder="example@gmail.com" />
+            <input name="email" type="email" required placeholder="example@gmail.com" />
           </div>
           <div class="field input">
             <label for="">Пароль</label>
-            <input type="password" placeholder="Придумайте надежный пароль :)" />
+            <input name="password" type="password" required placeholder="Придумайте надежный пароль :)" />
             <i class="fas fa-eye"></i>
           </div>
           <div class="field image">
             <label for="profile-picture">Аватар профиля</label>
-            <input
+            <input required
               accept="image/png, image/jpeg, image"
-              name="profile-picture"
+              name="image"
               class="profile-picture"
               type="file"
             />
@@ -54,5 +54,6 @@
       </section>
     </div>
     <script async src="./javascript/pass-show-hide.js"></script>
+    <script async src="./javascript/signUp.js"></script>
   </body>
 </html>

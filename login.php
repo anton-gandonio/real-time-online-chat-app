@@ -29,9 +29,10 @@
             <input  type="submit" value="Зарегистрироваться" />
           </div>
         </form>
-        <div class="link">Нет аккаунта? <a href="./index.html">Зарегистрироваться</a></div>
+        <div class="link">Нет аккаунта? <a href="./index.php">Зарегистрироваться</a></div>
       </section>
     </div>
     <script async src="./javascript/pass-show-hide.js"></script>
+    <script async src="./javascript/signUp.js"></script>
   </body>
 </html>

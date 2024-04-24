@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Онлайн-чат в реальном времени</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    />
-  </head>
+<?php include_once "header.php";?>
   <body>
     <div class="wrapper">
       <section class="form signup">
@@ -49,7 +38,7 @@
           </div>
         </form>
         <div class="link">
-          Уже зарегистрированы? <a href="./login.html">Войти</a>
+          Уже зарегистрированы? <a href="./login.php">Войти</a>
         </div>
       </section>
     </div>

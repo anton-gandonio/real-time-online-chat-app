@@ -3,4 +3,3 @@
     if(!$conn) {
         echo "database connected" . mysqli_connect_error();
     }
-?>

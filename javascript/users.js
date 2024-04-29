@@ -1,43 +1,48 @@
 const searchBar = document.querySelector(".users .search input");
 const searchButton = document.querySelector(".users .search button");
-const usersList = document.querySelector(".users .users-list")
+const usersList = document.querySelector(".users .users-list");
 
-searchButton.addEventListener("click", () => {
-    searchBar.classList.toggle("active")
-    searchBar.focus()
-    searchButton.classList.toggle("active")
+searchButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  searchBar.classList.toggle("active");
+  searchBar.focus();
+  searchButton.classList.toggle("active");
+  searchBar.value = ""
 });
 
 searchBar.addEventListener("keyup", () => {
-    let searchTerm = searchBar.value
-    if (searchTerm != "") {
-
-    }
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "php/search.php", true);
-    xhr.onload = () => {
+  let searchTerm = searchBar.value;
+  if (searchTerm != "") {
+    searchBar.classList.add("active");
+  } else {
+    searchBar.classList.remove("active");
+  }
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "php/search.php", true);
+  xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
+      if (xhr.status === 200) {
         let data = xhr.response;
-        console.log(data);
-        }
+        usersList.innerHTML = data;
+      }
     }
-};
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-xhr.send("searchTerm=" + searchTerm)
-})
-
+  };
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send("searchTerm=" + searchTerm);
+});
 
 setInterval(() => {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "php/users.php", true);
-    xhr.onload = () => {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "php/users.php", true);
+  xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
+      if (xhr.status === 200) {
         let data = xhr.response;
-        usersList.innerHTML = data
+        if (!searchBar.classList.contains("active")) {
+          usersList.innerHTML = data;
         }
+      }
     }
-};
-xhr.send()
-}, 500); 
+  };
+  xhr.send();
+}, 500);

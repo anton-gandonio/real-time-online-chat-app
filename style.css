@@ -266,7 +266,7 @@ body {
 
 /* * класс для того чтобы показывать статус (php included) */
 .users-list a .status-dot.offline {
-  color: #ccc;
+  color: #979797;
 }
 
 .users-list a .content p {
